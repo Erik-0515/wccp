@@ -1,0 +1,94 @@
+@import "./tokens.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--wccp-color-bg-canvas);
+  color: var(--wccp-color-text-primary);
+  font-family: var(--wccp-font-body);
+  text-rendering: geometricPrecision;
+}
+
+body {
+  margin: 0;
+  background: var(--wccp-color-bg-canvas);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+img,
+svg {
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--wccp-focus-brand);
+}
+
+.wccp-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255, 204, 0, 0.13), transparent 24rem),
+    var(--wccp-color-bg-canvas);
+}
+
+.wccp-container {
+  width: min(calc(100% - var(--wccp-grid-margin) * 2), var(--wccp-content-max-width));
+  margin-inline: auto;
+}
+
+.wccp-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.wccp-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 204, 0, 0.45) rgba(255, 255, 255, 0.06);
+}
+
+.wccp-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.wccp-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 204, 0, 0.45);
+  border-radius: 999px;
+}
+
+.wccp-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+}

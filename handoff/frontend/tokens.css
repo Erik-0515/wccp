@@ -1,0 +1,159 @@
+:root {
+  color-scheme: dark;
+
+  /* Color primitives */
+  --wccp-yellow-100: #fff4cc;
+  --wccp-yellow-200: #ffe699;
+  --wccp-yellow-300: #ffd966;
+  --wccp-yellow-400: #ffcc00;
+  --wccp-yellow-500: #e6b800;
+  --wccp-yellow-600: #b38f00;
+  --wccp-yellow-700: #806600;
+  --wccp-yellow-800: #4d3d00;
+  --wccp-yellow-900: #1a1400;
+
+  --wccp-neutral-0: #000000;
+  --wccp-neutral-50: #0f0f0f;
+  --wccp-neutral-100: #1a1a1a;
+  --wccp-neutral-200: #242424;
+  --wccp-neutral-300: #2c2c2c;
+  --wccp-neutral-400: #3d3d3d;
+  --wccp-neutral-500: #666666;
+  --wccp-neutral-600: #8e8e93;
+  --wccp-neutral-700: #b8b8b8;
+  --wccp-neutral-800: #e8e8e8;
+  --wccp-neutral-900: #ffffff;
+
+  --wccp-status-success: #35d485;
+  --wccp-status-warning: #ffcc00;
+  --wccp-status-danger: #ff5f5f;
+  --wccp-status-info: #6aa8ff;
+
+  /* Semantic colors */
+  --wccp-color-bg-canvas: #1e1e1e;
+  --wccp-color-bg-default: #0f0f0f;
+  --wccp-color-bg-surface: #1a1a1a;
+  --wccp-color-bg-surface-raised: #242424;
+  --wccp-color-bg-interactive: #2c2c2c;
+  --wccp-color-bg-interactive-hover: #3d3d3d;
+  --wccp-color-bg-brand: var(--wccp-yellow-400);
+  --wccp-color-bg-brand-hover: var(--wccp-yellow-300);
+  --wccp-color-bg-brand-pressed: var(--wccp-yellow-500);
+  --wccp-color-bg-disabled: #2c2c2c;
+
+  --wccp-color-text-primary: #ffffff;
+  --wccp-color-text-secondary: #b8b8b8;
+  --wccp-color-text-muted: #8e8e93;
+  --wccp-color-text-brand: var(--wccp-yellow-400);
+  --wccp-color-text-on-brand: #0f0f0f;
+  --wccp-color-text-disabled: #666666;
+
+  --wccp-color-icon-primary: #ffffff;
+  --wccp-color-icon-secondary: #b8b8b8;
+  --wccp-color-icon-brand: var(--wccp-yellow-400);
+  --wccp-color-icon-on-brand: #0f0f0f;
+
+  --wccp-color-border-default: rgba(255, 204, 0, 0.22);
+  --wccp-color-border-strong: rgba(255, 255, 255, 0.14);
+  --wccp-color-border-brand: var(--wccp-yellow-400);
+  --wccp-color-border-focus: var(--wccp-yellow-400);
+  --wccp-color-border-hover: rgba(255, 204, 0, 0.55);
+
+  --wccp-color-overlay-scrim: rgba(0, 0, 0, 0.64);
+  --wccp-color-overlay-highlight: rgba(255, 204, 0, 0.16);
+
+  /* Spacing */
+  --wccp-space-025: 2px;
+  --wccp-space-050: 4px;
+  --wccp-space-075: 6px;
+  --wccp-space-100: 8px;
+  --wccp-space-125: 10px;
+  --wccp-space-150: 12px;
+  --wccp-space-200: 16px;
+  --wccp-space-250: 20px;
+  --wccp-space-300: 24px;
+  --wccp-space-400: 32px;
+  --wccp-space-500: 40px;
+  --wccp-space-600: 48px;
+  --wccp-space-800: 64px;
+
+  /* Radius */
+  --wccp-radius-none: 0;
+  --wccp-radius-sm: 6px;
+  --wccp-radius-md: 10px;
+  --wccp-radius-lg: 14px;
+  --wccp-radius-xl: 20px;
+  --wccp-radius-full: 999px;
+
+  /* Stroke */
+  --wccp-stroke-thin: 1px;
+  --wccp-stroke-strong: 2px;
+
+  /* Control */
+  --wccp-control-sm: 36px;
+  --wccp-control-md: 44px;
+  --wccp-control-lg: 48px;
+  --wccp-control-xl: 56px;
+
+  /* Typography */
+  --wccp-font-headline: "Anton", Impact, sans-serif;
+  --wccp-font-body: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --wccp-text-display-hero: 64px;
+  --wccp-text-display-section: 48px;
+  --wccp-text-h1: 40px;
+  --wccp-text-h2: 32px;
+  --wccp-text-h3: 24px;
+  --wccp-text-body-lg: 18px;
+  --wccp-text-body-md: 16px;
+  --wccp-text-body-sm: 14px;
+  --wccp-text-label-md: 14px;
+  --wccp-text-label-sm: 12px;
+
+  --wccp-line-display-hero: 72px;
+  --wccp-line-display-section: 56px;
+  --wccp-line-h1: 48px;
+  --wccp-line-h2: 40px;
+  --wccp-line-h3: 32px;
+  --wccp-line-body-lg: 28px;
+  --wccp-line-body-md: 24px;
+  --wccp-line-body-sm: 20px;
+  --wccp-line-label-md: 18px;
+  --wccp-line-label-sm: 16px;
+
+  /* Responsive */
+  --wccp-viewport-width: 1440px;
+  --wccp-content-max-width: 1280px;
+  --wccp-grid-columns: 12;
+  --wccp-grid-margin: 64px;
+  --wccp-grid-gutter: 24px;
+
+  /* Effects */
+  --wccp-shadow-100: 0 4px 16px rgba(0, 0, 0, 0.24);
+  --wccp-shadow-200: 0 8px 28px rgba(0, 0, 0, 0.32);
+  --wccp-shadow-300: 0 16px 48px rgba(0, 0, 0, 0.42);
+  --wccp-focus-brand: 0 0 0 3px rgba(255, 204, 0, 0.32);
+  --wccp-glow-brand-300: 0 0 18px rgba(255, 204, 0, 0.42);
+  --wccp-glow-brand-600: 0 0 36px rgba(255, 204, 0, 0.54);
+  --wccp-glow-brand-1000: 0 0 64px rgba(255, 204, 0, 0.68);
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --wccp-viewport-width: 768px;
+    --wccp-content-max-width: 704px;
+    --wccp-grid-columns: 8;
+    --wccp-grid-margin: 32px;
+    --wccp-grid-gutter: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --wccp-viewport-width: 440px;
+    --wccp-content-max-width: 350px;
+    --wccp-grid-columns: 4;
+    --wccp-grid-margin: 20px;
+    --wccp-grid-gutter: 16px;
+  }
+}
