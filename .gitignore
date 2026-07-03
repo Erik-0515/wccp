@@ -1,0 +1,8 @@
+.DS_Store
+**/.DS_Store
+
+node_modules/
+**/node_modules/
+
+# Deprecated local asset; FloatingButton was removed from the handoff scope.
+handoff/frontend/public/ke7-main-floating-button.mp4
