@@ -782,12 +782,19 @@
   }
 
   .wccp-history-item {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: var(--wccp-space-150);
     min-height: 96px;
   }
 
+  .wccp-history-item__logo {
+    width: 48px;
+    height: 48px;
+  }
+
   .wccp-history-item__stage {
-    grid-column: 2;
+    justify-self: end;
+    white-space: nowrap;
   }
 
   .wccp-toast {
