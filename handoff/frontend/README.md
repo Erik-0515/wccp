@@ -34,22 +34,22 @@ Assets are included under:
 ```txt
 public/
   team-logos/
-    web/
-      Portugal.png
-      Mexico.png
-      ...
-    mobile/
-      Portugal.png
-      Mexico.png
-      ...
+    Portugal.png
+    Mexico.png
+    ...
   images/
-    cover.png
     hero-bg-web.png
     hero-bg-mobile.png
     shared-jackpot-label-web.png
     shared-jackpot-label-mobile.png
-    reference-page-web.png
-    reference-page-mobile.png
+  icons/
+    favicon.ico
+    favicon-16.png
+    favicon-32.png
+    apple-touch-icon.png
+    icon-192.png
+    icon-512.png
+  site.webmanifest
 ```
 
 Production images are exported from the Figma `Assets` page:
@@ -63,6 +63,16 @@ Asset/SharedJackpot/Mobile
 ```
 
 Shared Jackpot label artwork is exported as an image. The jackpot amount is implemented as dynamic frontend text because the amount may change.
+
+Handoff-only assets live outside `public` so they are not deployed as production runtime files:
+
+```txt
+handoff/assets/
+  cover/cover.png
+  qa-reference/reference-page-web.png
+  qa-reference/reference-page-mobile.png
+  wccp-favicon-source.png
+```
 
 QA reference images are exported from Figma `Pages`:
 
@@ -111,6 +121,19 @@ Example import:
 
 ## Core interaction behavior
 
+### Hero CTAs
+
+- `Pick Your Champion` scrolls to Champion Selection.
+- `How It Works` scrolls to the How It Works / FAQ section.
+
+### Page section order
+
+1. Hero
+2. Invite Friends
+3. Pick Your Champion
+4. Prediction History
+5. How It Works / FAQ
+
 ### Champion selection
 
 1. User clicks a Team Card.
@@ -121,7 +144,7 @@ Example import:
 
 Important: prediction records append. Do not replace the previous record.
 
-### Invite friends
+### Invite Friends
 
 1. User clicks Copy.
 2. Copy toast appears.

@@ -27,7 +27,7 @@ export function ChampionSelection({
 }) {
   return (
     <Section
-      title="Pick your champion"
+      title="Pick Your Champion"
       description="Select the team you predict will win the World Cup."
       accessory={<span className="wccp-chances">1 chance left</span>}
     >
@@ -80,7 +80,7 @@ export function InviteFriends({
 }) {
   const disabled = count >= max;
   return (
-    <Section title="Invite friends" description="Each successful referral gives you one additional voting chance.">
+    <Section title="Invite Friends" description="Each successful referral gives you one additional voting chance.">
       <ProgressBar value={count} max={max} />
       <div className="wccp-invite-row">
         <AddressBar value={inviteUrl} />
@@ -95,7 +95,7 @@ export function InviteFriends({
 export function FAQ({ items = faqItems }: { items?: FAQItem[] }) {
   const [openId, setOpenId] = useState(items[0]?.id ?? "");
   return (
-    <Section title="How it works" description="Key rules and prediction details." transparent>
+    <Section title="How It Works" description="Key rules and prediction details." transparent>
       <div className="wccp-faq-list">
         {items.map((item) => (
           <Accordion key={item.id} title={item.question} open={openId === item.id} onToggle={() => setOpenId(openId === item.id ? "" : item.id)}>

@@ -98,6 +98,9 @@ export function HomePage() {
         onHowItWorks={() => scrollToSection("how-it-works")}
       />
       <div className="wccp-container wccp-main-stack">
+        <div id="invite-friends" className="wccp-scroll-target">
+          <InviteFriends inviteUrl="https://ke7.com/wccp" count={referralCount} onCopy={copyInvite} />
+        </div>
         <div id="champion-selection" className="wccp-scroll-target">
           <ChampionSelection
             teams={visibleTeams}
@@ -106,7 +109,6 @@ export function HomePage() {
             onTeamSelect={setSelectedTeam}
           />
         </div>
-        <InviteFriends inviteUrl="https://ke7.com/wccp" count={referralCount} onCopy={copyInvite} />
         <PredictionHistory predictions={predictions} />
         <div id="how-it-works" className="wccp-scroll-target">
           <FAQ />
