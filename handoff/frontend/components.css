@@ -187,6 +187,10 @@
   text-align: center;
 }
 
+#how-it-works .wccp-section {
+  padding-inline: 0;
+}
+
 #how-it-works .wccp-section__header > div {
   width: 100%;
 }
@@ -207,18 +211,6 @@
   color: var(--wccp-color-text-brand);
   font-size: var(--wccp-text-label-sm);
   font-weight: 800;
-}
-
-.wccp-chances::before {
-  content: "1 chance left";
-}
-
-.wccp-chances {
-  font-size: 0;
-}
-
-.wccp-chances::before {
-  font-size: var(--wccp-text-label-sm);
 }
 
 .wccp-button {
@@ -385,6 +377,11 @@
   background: var(--wccp-color-bg-interactive-hover);
 }
 
+.wccp-team-card:disabled:hover {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: var(--wccp-color-bg-interactive);
+}
+
 .wccp-team-card:active,
 .wccp-team-card.is-selected {
   border-color: var(--wccp-color-border-brand);
@@ -393,6 +390,7 @@
 
 .wccp-team-card:disabled {
   opacity: 0.45;
+  transform: none;
 }
 
 .wccp-team-card__logo {
@@ -722,11 +720,6 @@
   #how-it-works .wccp-section__title {
     font-size: var(--wccp-text-h1);
     line-height: var(--wccp-line-h1);
-  }
-
-  .wccp-chances::before {
-    content: "1 left";
-    display: block;
   }
 
   .wccp-section__accessory {

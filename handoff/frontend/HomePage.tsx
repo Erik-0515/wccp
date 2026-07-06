@@ -12,6 +12,7 @@ export function HomePage() {
   const [predictions, setPredictions] = useState<Prediction[]>([]);
   const [referralCount, setReferralCount] = useState(0);
   const [toast, setToast] = useState<"copy" | "prediction" | null>(null);
+  const availableChances = Math.max(1 + referralCount - predictions.length, 0);
 
   const visibleTeams = useMemo(() => {
     const referenceOrder = [
@@ -50,7 +51,7 @@ export function HomePage() {
   }
 
   function confirmPrediction() {
-    if (!selectedTeam) return;
+    if (!selectedTeam || availableChances <= 0) return;
     setPredictions((current) => [
       {
         id: `${selectedTeam.id}-${Date.now()}`,
@@ -80,6 +81,11 @@ export function HomePage() {
     showToast("copy");
   }
 
+  function selectTeam(team: Team) {
+    if (availableChances <= 0) return;
+    setSelectedTeam(team);
+  }
+
   function scrollToSection(sectionId: string) {
     document.getElementById(sectionId)?.scrollIntoView({
       behavior: "smooth",
@@ -105,8 +111,9 @@ export function HomePage() {
           <ChampionSelection
             teams={visibleTeams}
             activeStage={activeStage}
+            availableChances={availableChances}
             onStageChange={setActiveStage}
-            onTeamSelect={setSelectedTeam}
+            onTeamSelect={selectTeam}
           />
         </div>
         <PredictionHistory predictions={predictions} />

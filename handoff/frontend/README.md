@@ -141,14 +141,29 @@ Example import:
 3. User confirms.
 4. A new prediction record is appended to Prediction History.
 5. Prediction success toast appears.
+6. Available prediction chances decrease by one.
 
 Important: prediction records append. Do not replace the previous record.
+
+Champion Selection is gated by available prediction chances. When `availableChances <= 0`, every Team Card uses the existing disabled state and must not open the confirmation dialog.
+
+```ts
+const BASE_CHANCES = 1;
+const MAX_REFERRAL_REWARDS = 5;
+
+const availableChances = Math.max(
+  BASE_CHANCES + successfulReferralCount - submittedPredictionCount,
+  0
+);
+
+const championSelectionDisabled = availableChances <= 0;
+```
 
 ### Invite Friends
 
 1. User clicks Copy.
 2. Copy toast appears.
-3. Progress advances:
+3. Demo behavior: the local demo simulates one successful referral and advances progress:
 
 ```txt
 0/5 → 1/5 → 2/5 → 3/5 → 4/5 → 5/5
@@ -160,7 +175,7 @@ At `5/5`:
 - No further toast appears.
 - No further progress change occurs.
 
-Production should derive this count from backend referral state, not local copy count.
+Production behavior: Copy only copies the invite URL and shows `Toast/Copy Feedback`. Referral progress and additional prediction chances must be derived from backend `successfulReferralCount`, not from local copy count. Each successful referral grants one additional prediction chance, up to `+5` from referrals.
 
 ### FAQ
 
@@ -194,7 +209,14 @@ type ReferralState = {
   successfulReferrals: number; // 0–5
   maxReferrals: 5;
   copyEnabled: boolean; // successfulReferrals < maxReferrals
-  remainingVotingChances: number;
+};
+
+type PredictionChanceState = {
+  baseChances: 1;
+  successfulReferralCount: number; // 0–5
+  submittedPredictionCount: number;
+  availableChances: number; // max(1 + successfulReferralCount - submittedPredictionCount, 0)
+  championSelectionDisabled: boolean; // availableChances <= 0
 };
 ```
 
@@ -207,14 +229,21 @@ type ReferralState = {
 - Mobile touch targets should be at least `48px`.
 - Dialog currently has no scrim, matching the Figma component direction.
 - Stage tabs are disabled except `Initial 48` in v1.
+- Team Cards are disabled when `availableChances <= 0`.
+- Backend state is the source of truth for submitted predictions and successful referrals.
 
 ## QA checklist
 
 - Web 1440px and Mobile 440px match Figma Pages.
 - All 48 Team Cards render.
 - Team selection appends records.
-- Copy advances only to `5/5`.
-- Copy is disabled at `5/5`.
+- Initial state shows `1 chance left`.
+- Confirming one prediction changes the counter to `0 chances left`.
+- Team Cards are disabled and do not open the dialog at `0 chances left`.
+- Demo only: copying an invite simulates a successful referral, increases referral progress and restores one available chance.
+- Demo only: Copy advances only to `5/5`.
+- Demo only: Copy is disabled at `5/5`.
+- Production: referral progress and available chances come from backend `successfulReferralCount`.
 - FAQ open/close works with keyboard.
 - Dialog is keyboard reachable and confirm/cancel are clear.
 - Team logos load with no layout shift.

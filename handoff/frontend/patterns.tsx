@@ -17,19 +17,22 @@ import type { FAQItem, Prediction, Team, TournamentStage } from "./types";
 export function ChampionSelection({
   teams,
   activeStage,
+  availableChances,
   onStageChange,
   onTeamSelect,
 }: {
   teams: Team[];
   activeStage: TournamentStage;
+  availableChances: number;
   onStageChange: (stage: TournamentStage) => void;
   onTeamSelect: (team: Team) => void;
 }) {
+  const disabled = availableChances <= 0;
   return (
     <Section
       title="Pick Your Champion"
       description="Select the team you predict will win the World Cup."
-      accessory={<span className="wccp-chances">1 chance left</span>}
+      accessory={<span className="wccp-chances">{formatChances(availableChances)}</span>}
     >
       <div className="wccp-stage-tabs wccp-scrollbar">
         {stageTabs.map((stage) => (
@@ -44,11 +47,15 @@ export function ChampionSelection({
       </div>
       <div className="wccp-team-grid wccp-scrollbar">
         {teams.map((team) => (
-          <TeamCard key={team.id} team={team} onSelect={onTeamSelect} />
+          <TeamCard key={team.id} team={team} disabled={disabled} onSelect={onTeamSelect} />
         ))}
       </div>
     </Section>
   );
+}
+
+function formatChances(value: number) {
+  return value === 1 ? "1 chance left" : `${value} chances left`;
 }
 
 export function PredictionHistory({ predictions }: { predictions: Prediction[] }) {
