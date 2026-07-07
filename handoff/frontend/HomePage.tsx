@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./globals.css";
 import "./components.css";
 import { Button, ConfirmationDialog, Toast } from "./components";
@@ -144,6 +144,40 @@ function Hero({
   onPickChampion: () => void;
   onHowItWorks: () => void;
 }) {
+  const jackpotTotal = 1_000_000;
+  const [jackpotAmount, setJackpotAmount] = useState(0);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      setJackpotAmount(jackpotTotal);
+      return;
+    }
+
+    let animationFrame = 0;
+    const duration = 1600;
+    const startedAt = window.performance.now();
+    const easeOutCubic = (progress: number) => 1 - Math.pow(1 - progress, 3);
+
+    function animate(now: number) {
+      const progress = Math.min((now - startedAt) / duration, 1);
+      const nextAmount = Math.round(jackpotTotal * easeOutCubic(progress));
+
+      setJackpotAmount(nextAmount);
+
+      if (progress < 1) {
+        animationFrame = window.requestAnimationFrame(animate);
+      }
+    }
+
+    setJackpotAmount(0);
+    animationFrame = window.requestAnimationFrame(animate);
+
+    return () => window.cancelAnimationFrame(animationFrame);
+  }, []);
+
+  const formattedJackpot = new Intl.NumberFormat("en-US").format(jackpotAmount);
+
   return (
     <section className="wccp-hero">
       <div className="wccp-hero__top">
@@ -158,7 +192,7 @@ function Hero({
             <source media="(max-width: 767px)" srcSet="/images/shared-jackpot-label-mobile.png" />
             <img className="wccp-shared-jackpot__label" src="/images/shared-jackpot-label-web.png" alt="Shared Jackpot" />
           </picture>
-          <strong>KES 1,000,000</strong>
+          <strong aria-hidden="true">KES {formattedJackpot}</strong>
         </div>
         <div className="wccp-hero__actions">
           <Button onClick={onPickChampion}>Pick Your Champion</Button>

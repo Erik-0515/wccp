@@ -654,8 +654,8 @@
   }
 
   .wccp-page-bg {
-    width: 770px;
-    height: 1426px;
+    width: 100vw;
+    height: calc(100vw * 1406 / 390);
   }
 
   .wccp-hero {
