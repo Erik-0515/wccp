@@ -695,7 +695,8 @@
 
   .wccp-hero__actions {
     display: grid;
-    width: min(calc(100vw - 47px), 343px);
+    width: 260px;
+    max-width: calc(100vw - 47px);
     gap: 12px;
   }
 

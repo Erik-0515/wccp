@@ -55,7 +55,7 @@ export function ChampionSelection({
 }
 
 function formatChances(value: number) {
-  return value === 1 ? "1 chance left" : `${value} chances left`;
+  return `${value} left`;
 }
 
 export function PredictionHistory({ predictions }: { predictions: Prediction[] }) {
