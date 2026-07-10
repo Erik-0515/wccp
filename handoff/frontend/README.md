@@ -1,6 +1,6 @@
-# WCCP Frontend Handoff
+# WCCP v1.0 Frontend Handoff
 
-This package is a copy-ready frontend reference generated from the WCCP Figma design system.
+This package is a copy-ready frontend reference for WCCP v1.0.
 
 It is intentionally framework-light:
 

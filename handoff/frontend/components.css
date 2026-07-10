@@ -654,12 +654,12 @@
   }
 
   .wccp-page-bg {
-    width: 100vw;
-    height: calc(100vw * 1406 / 390);
+    width: 750px;
+    height: 1406px;
   }
 
   .wccp-hero {
-    min-height: 473px;
+    min-height: 468px;
     background: transparent;
   }
 
@@ -677,25 +677,26 @@
   }
 
   .wccp-hero__content {
-    min-height: 425px;
-    padding-top: 195px;
+    min-height: 420px;
+    padding-top: 190px;
   }
 
   .wccp-shared-jackpot {
-    margin-bottom: 20px;
+    margin-bottom: 32px;
   }
 
   .wccp-shared-jackpot__label {
-    width: 177px;
+    width: 220px;
   }
 
   .wccp-shared-jackpot strong {
     font-size: 50px;
+    white-space: nowrap;
   }
 
   .wccp-hero__actions {
     display: grid;
-    width: 260px;
+    width: 444px;
     max-width: calc(100vw - 47px);
     gap: 12px;
   }
