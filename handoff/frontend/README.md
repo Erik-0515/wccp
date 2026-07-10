@@ -25,6 +25,9 @@ handoff/frontend/
   patterns.tsx        Product-level patterns
   HomePage.tsx        Interactive page reference
   index.ts            Barrel exports
+  FRONTEND_SPEC.md    Full engineering handoff specification
+  package.json        Vite demo scripts and dependencies
+  vite.config.ts      Vite build configuration
 ```
 
 ## Asset setup
@@ -60,6 +63,7 @@ Asset/Hero Background/Web
 Asset/Hero Background/Mobile
 Asset/SharedJackpot/Web
 Asset/SharedJackpot/Mobile
+Asset/Floating Button
 ```
 
 Shared Jackpot label artwork is exported as an image. The jackpot amount is implemented as dynamic frontend text because the amount may change.
@@ -72,14 +76,21 @@ handoff/assets/
   qa-reference/reference-page-web.png
   qa-reference/reference-page-mobile.png
   wccp-favicon-source.png
+  wccp-floating-button.webp
+  wccp-floating-button.gif
+  wccp-floating-button-inner-glow-triple-pulse-50-transparent.gif
+  wccp-floating-button-inner-glow-triple-pulse-100-transparent.gif
 ```
 
-QA reference images are exported from Figma `Pages`:
+QA reference images are exported from the Figma `Screens` page:
 
 ```txt
-Page/Home/Web
-Page/Home/Mobile
+Screen/Home/Web
+Screen/Home/Mobile
 ```
+
+`wccp-floating-button.webp` is retained as an optional handoff asset. It is not used in the current Home demo unless product scope reintroduces it.
+The GIF variants are optional animated Floating Button references and should not be deployed unless that feature is added back into product scope.
 
 The current data file expects URLs like:
 
@@ -237,9 +248,9 @@ type PredictionChanceState = {
 - Web 1440px and Mobile 440px match Figma Pages.
 - All 48 Team Cards render.
 - Team selection appends records.
-- Initial state shows `1 chance left`.
-- Confirming one prediction changes the counter to `0 chances left`.
-- Team Cards are disabled and do not open the dialog at `0 chances left`.
+- Initial state shows `1 left`.
+- Confirming one prediction changes the counter to `0 left`.
+- Team Cards are disabled and do not open the dialog at `0 left`.
 - Demo only: copying an invite simulates a successful referral, increases referral progress and restores one available chance.
 - Demo only: Copy advances only to `5/5`.
 - Demo only: Copy is disabled at `5/5`.

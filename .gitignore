@@ -4,5 +4,5 @@
 node_modules/
 **/node_modules/
 
-# Deprecated local asset; FloatingButton was removed from the handoff scope.
+# Deprecated local video export; Floating Button is retained via handoff/assets/wccp-floating-button*.
 handoff/frontend/public/ke7-main-floating-button.mp4
